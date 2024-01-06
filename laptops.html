@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ноутбуки - Магазин техніки</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            width: 100%;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            top: 60px;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #eee;
+            background-color: #333;
+            padding: 0.5em 1em;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 0 0.5em;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        section {
+            padding: 2em;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 120px;
+        }
+
+        article {
+            margin: 1em;
+            width: calc(20% - 2em);
+            border: 1px solid #ddd;
+            padding: 1em;
+            background-color: #fff;
+            text-align: center;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.3s ease-in-out;
+            border-radius: 8px;
+        }
+
+        article:hover {
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        h2 {
+            margin-top: 1em;
+            color: #333;
+        }
+
+        p {
+            margin: 0.5em 0;
+            color: #666;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Магазин техніки</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Головна</a>
+        <a href="laptops.html">Ноутбуки</a>
+        <a href="smartphones.html">Смартфони</a>
+        <a href="computers.html">Комп'ютери</a>
+    </nav>
+
+    <section id="laptopsSection">
+    </section>
+
+    <footer>
+        &copy; 2024 Найкращий Магазин Техніки. Зворотній зв'язок: +38 000 00 00 000
+    </footer>
+
+    <script>
+        const laptops = [
+            "Dell XPS 13", "MacBook Air", "Lenovo ThinkPad X1 Carbon", "HP Spectre x360", "Asus ROG Zephyrus G14",
+            "Acer Swift 3", "Microsoft Surface Laptop 4", "LG Gram", "MSI GS66 Stealth", "Dell Inspiron 14",
+            "HP Envy x360", "Lenovo Yoga C940", "Asus VivoBook S15", "Razer Blade 15", "Acer Predator Helios 300",
+            "MacBook Pro 13", "Dell G3 15", "HP Pavilion x360", "Lenovo Legion Y540", "Asus TUF Gaming A15",
+            "Microsoft Surface Book 3", "Gigabyte Aero 15", "Alienware m15", "Lenovo ThinkBook 14", "HP Omen 15",
+            "Asus ROG Strix Scar III", "Dell Latitude 7400", "LG Gram 17", "MSI Prestige 15", "Acer Aspire 5",
+            "MacBook Pro 16", "Lenovo Legion Y740", "HP Elite Dragonfly", "Asus ZenBook Duo", "Dell Inspiron 15",
+            "Microsoft Surface Pro 7", "Acer Chromebook 14", "MSI Modern 14", "Asus ROG Zephyrus Duo 15",
+            "HP ProBook 450", "Lenovo Ideapad L340", "Dell Alienware Area-51m", "LG Gram 14", "Acer Predator Triton 500",
+            "MacBook Pro 14", "Asus ROG Flow Z13", "HP Pavilion Gaming Laptop", "Lenovo Yoga C740",
+            "Microsoft Surface Go 2", "Dell Precision 5540", "MSI GF65 Thin", "Acer Nitro 5", "Asus VivoBook Flip 14",
+            "Razer Blade Pro 17", "HP ZBook Studio x360", "Lenovo Legion 5", "Dell XPS 15", "LG Gram 16",
+            "MSI Creator 15", "Acer Aspire 7", "MacBook Pro 15", "Asus ROG Zephyrus G15", "HP Chromebook 14",
+            "Lenovo Flex 5", "Microsoft Surface Laptop Go", "Dell Vostro 14", "Asus ZenBook 14", "Acer Swift 5",
+            "MSI GE66 Raider", "Alienware Area-51m R2", "LG Gram 15", "HP Stream 14", "Lenovo ThinkPad X1 Yoga",
+            "Microsoft Surface Pro X", "Dell Precision 7540", "Asus ROG Flow Z15", "Acer TravelMate P6", "MacBook Pro 12",
+            "HP ZBook Firefly", "Lenovo Legion 7", "Razer Blade Stealth", "MSI GP65 Leopard", "Dell Latitude 7400 2-in-1",
+            "Asus ZenBook Pro Duo", "LG Gram 13", "Acer Predator Helios 700", "Microsoft Surface Laptop 3", "HP Envy 13",
+            "Lenovo IdeaPad 3", "Dell G5 15", "Asus ROG Zephyrus G17", "MSI Alpha 15", "Alienware m17", "LG Gram 12",
+            "HP Chromebook x360", "Lenovo ThinkPad L14", "Microsoft Surface Pro 6", "Acer ConceptD 7", "Asus ROG Strix G",
+            "Dell Precision 5550"
+        ];
+
+        laptops.forEach((laptop, index) => {
+            createLaptop(index + 1, laptop);
+        });
+
+  function createLaptop(index, name) {
+            const laptopContainer = document.getElementById('laptopsSection');
+
+            const article = document.createElement('article');
+            const img = document.createElement('img');
+            const h2 = document.createElement('h2');
+            const p1 = document.createElement('p');
+            const p2 = document.createElement('p');
+            const button = document.createElement('button');
+
+            img.src = 'img/GAMING LAPTOPS.jpg'; 
+            img.alt = `Ноутбук ${index}`;
+
+            h2.textContent = name;
+            p1.textContent = 'Опис ноутбука Lorem ipsum dolor sit amet.';
+            p2.textContent = `Ціна: $${Math.floor(Math.random() * 2000) + 500}`;
+            button.textContent = 'Додати до кошика';
+
+            article.appendChild(img);
+            article.appendChild(h2);
+            article.appendChild(p1);
+            article.appendChild(p2);
+            article.appendChild(button);
+
+            laptopContainer.appendChild(article);
+        }
+    </script>
+
+</body>
+
+</html>
